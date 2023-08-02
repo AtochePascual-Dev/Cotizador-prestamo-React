@@ -2,6 +2,7 @@ import Buttom from "./components/Buttom"
 import Header from "./components/Header"
 import Meses from "./components/Meses"
 import Rango from "./components/Rango"
+import Resultado from "./components/Resultado"
 
 function App() {
 
@@ -23,6 +24,8 @@ function App() {
       </h2>
 
       <Meses />
+
+      <Resultado />
     </div>
   )
 }
