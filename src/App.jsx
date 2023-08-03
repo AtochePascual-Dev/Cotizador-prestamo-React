@@ -7,6 +7,7 @@ import Resultado from "./components/Resultado"
 
 function App() {
   const [cantidad, setCantidad] = useState(10000);
+  const [meses, setMeses] = useState(6);
 
   const handleClickDecremento = () => {
     const valor = cantidad - 100;
@@ -46,9 +47,15 @@ function App() {
         Elige un <span className="text-indigo-600">plazo</span> a pagar
       </h2>
 
-      <Meses />
+      <Meses
+        meses={meses}
+        setMeses={setMeses}
+      />
 
-      <Resultado />
+      <Resultado
+        cantidad={cantidad}
+        meses={meses}
+      />
     </div>
   )
 }
