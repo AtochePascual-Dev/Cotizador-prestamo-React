@@ -1,5 +1,5 @@
 import React from 'react'
-import { calcularTotalaPagar } from '../helpers'
+import { calcularTotalaPagar, formatearCantidad } from '../helpers'
 
 const Resultado = ({ cantidad, meses }) => {
   return (
@@ -9,7 +9,7 @@ const Resultado = ({ cantidad, meses }) => {
       </h2>
 
       <p className="text-center font-bold text-gray-600"> Meses {meses}</p>
-      <p className="text-center font-bold text-gray-600">Total a Pagar {calcularTotalaPagar(cantidad, meses)}</p>
+      <p className="text-center font-bold text-gray-600">Total a Pagar {formatearCantidad(calcularTotalaPagar(cantidad, meses))}</p>
       <p className="text-center font-bold text-gray-600"> Mensuales </p>
     </div>
   )

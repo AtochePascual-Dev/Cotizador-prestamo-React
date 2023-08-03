@@ -4,6 +4,7 @@ import Header from "./components/Header"
 import Meses from "./components/Meses"
 import Rango from "./components/Rango"
 import Resultado from "./components/Resultado"
+import { formatearCantidad } from "./helpers"
 
 function App() {
   const [cantidad, setCantidad] = useState(10000);
@@ -41,7 +42,7 @@ function App() {
         setCantidad={setCantidad}
       />
 
-      <p className="mb-5 text-6xl text-center font-extrabold text-indigo-600">{cantidad}</p>
+      <p className="mb-5 text-6xl text-center font-extrabold text-indigo-600">{formatearCantidad(cantidad)}</p>
 
       <h2 className="text-2xl font-extrabold text-gray-600 text-center">
         Elige un <span className="text-indigo-600">plazo</span> a pagar
