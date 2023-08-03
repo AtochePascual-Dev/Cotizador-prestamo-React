@@ -14,6 +14,12 @@ function App() {
     setCantidad(valor)
   };
 
+  const handleClickIncremento = () => {
+    const valor = cantidad + 100;
+    if (valor > 20000) return;
+    setCantidad(valor)
+  };
+
   return (
     <div className="max-w-lg my-20 mx-auto p-10 rounded-lg shadow-lg bg-white">
       <Header />
@@ -25,6 +31,7 @@ function App() {
         />
         <Buttom
           operador="+"
+          fn={handleClickIncremento}
         />
       </div>
 
