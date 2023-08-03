@@ -1,14 +1,20 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Buttom from "./components/Buttom"
 import Header from "./components/Header"
 import Meses from "./components/Meses"
 import Rango from "./components/Rango"
 import Resultado from "./components/Resultado"
-import { formatearCantidad } from "./helpers"
+import { formatearCantidad, calcularTotalaPagar } from "./helpers"
 
 function App() {
   const [cantidad, setCantidad] = useState(10000);
   const [meses, setMeses] = useState(6);
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    const resultadoTotalPagar = (calcularTotalaPagar(cantidad, meses) / meses)
+    setTotal(resultadoTotalPagar);
+  }, [cantidad, meses]);
 
   const handleClickDecremento = () => {
     const valor = cantidad - 100;
@@ -23,7 +29,7 @@ function App() {
   };
 
   return (
-    <div className="max-w-lg my-20 mx-auto p-10 rounded-lg shadow-lg bg-white">
+    <div className="max-w-lg my-10 mx-auto p-10 rounded-lg shadow-lg bg-white">
       <Header />
 
       <div className="mb-5 flex justify-between">
@@ -56,6 +62,7 @@ function App() {
       <Resultado
         cantidad={cantidad}
         meses={meses}
+        total={total}
       />
     </div>
   )
